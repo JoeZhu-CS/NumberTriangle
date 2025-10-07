@@ -91,7 +91,19 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
-        // TODO implement this method
+        if (path.isEmpty()) {
+            return this.root;
+        }
+        
+        char direction = path.charAt(0);
+        String remainingPath = path.substring(1);
+        
+        if (direction == 'l') {
+            return this.left.retrieve(remainingPath);
+        } else if (direction == 'r') {
+            return this.right.retrieve(remainingPath);
+        }
+        
         return -1;
     }
 
